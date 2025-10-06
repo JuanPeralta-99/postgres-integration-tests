@@ -1,3 +1,4 @@
+//
 import { pool } from "./db";
 
 export async function createProduct(name: string, price: number) {
