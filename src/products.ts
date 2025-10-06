@@ -12,4 +12,4 @@ export async function getProducts() {
   const result = await pool.query("SELECT * FROM products");
   return result.rows;
 }
-//prueba
+//prueba-

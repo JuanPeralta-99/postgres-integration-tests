@@ -36,10 +36,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
+      - name: Wait for Postgres and Run tests
         env:
           POSTGRES_HOST: localhost
           POSTGRES_USER: testuser
           POSTGRES_PASSWORD: testpass
           POSTGRES_DB: testdb
-        run: npx vitest run
+        run: |
+          echo "Esperando que Postgres esté listo..."
+          until pg_isready -h $POSTGRES_HOST -U $POSTGRES_USER -d $POSTGRES_DB; do
+            sleep 2
+          done
+          echo "Postgres listo, corriendo tests..."
+          npx vitest run
