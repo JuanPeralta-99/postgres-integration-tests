@@ -1,4 +1,3 @@
-//
 import { pool } from "./db";
 
 export async function createProduct(name: string, price: number) {
@@ -13,3 +12,4 @@ export async function getProducts() {
   const result = await pool.query("SELECT * FROM products");
   return result.rows;
 }
+//prueba

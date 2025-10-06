@@ -42,4 +42,4 @@ jobs:
           POSTGRES_USER: testuser
           POSTGRES_PASSWORD: testpass
           POSTGRES_DB: testdb
-        run: npm run test
+        run: npx vitest run
